@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <form [formGroup]="myForm">
+        <!-- <br>
+      <label for="email">Email</label>
+      <br>
+      <input id="email" type="text" placeholder="mon.email@exemple.com" formControlName="email">
+      <br>
+      <br>
+      <br>
+      <label for="password">Mot de passe</label>
+      <br>
+      <input id="password" type="text" placeholder="Mot de passe" formControlName="password">
+      <br>
+      <br>
+      <br>
+
+      <label for="Vpassword">Vérifier votre mot de passe</label>
+      <br>
+      <input id="Vpassword" type="text" placeholder="Mot de passe" formControlName="Vpassword">
+      <br>
+      <br>
+      <br>
+      <label for="statut">Statut</label> -->
+        <div class="row">
+          <div class="col s12">
+            <div class="row">
+              <div class="input-field col s10">
+                <input
+                  id="email"
+                  type="text"
+                  class="validate"
+                  formControlName="email"
+                />
+                <label for="email">Adresse mail</label>
+              </div>
+              <div class="input-field col s10">
+                <input id="password" type="text" class="validate" formControlName="password" />
+                <label for="password">Mot de passe</label>
+              </div>
+              <div class="input-field col s10">
+                <input id="Vpassword" type="text" class="validate" formControlName="Vpassword" />
+                <label for="Vpassword">Vérification du mot de passe</label>
+              </div>
+            </div>
+            <br />
+            <label>
+              <input
+                value="particulier"
+                type="radio"
+                checked
+                formControlName="status"
+                (ngModelChange)="typeCoopSelectChange()"
+
+              />
+              <span>Particulier</span>
+            </label>
+            <label>
+              <input
+                value="cooperative"
+                type="radio"
+                formControlName="status"
+                (ngModelChange)="typeCoopSelectChange()"
+              />
+              <span>Coopérative</span>
+            </label>
+            <br />
+            <div class="input-field col s12">
+              <label
+                [hidden]="myForm.controls['status'].value != 'cooperative'"
+                for="typeCoop"
+                >Type de coopérative</label
+              >
+              <br />
+              <select
+                id="typeCoop"
+                [hidden]="myForm.controls['status'].value != 'cooperative'"
+                type="text"
+                formControlName="type"
+              >
+                <option value="" disabled selected>
+                  Choississez un type de coopérative
+                </option>
+                <option value="1">Agriculture et horticulture</option>
+                <option value="2">Secteur financier</option>
+                <option value="3">Commerce de gros et détail</option>
+                <option value="4">Services à la collectivité</option>
+                <option value="5">Pharmacies coopératives</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div
+        [hidden]="myForm.controls['status'].value != 'cooperative'" formControlName="Coopname" class="input-field col s10">
+          <input id="Coopname" type="text" class="validate" />
+          <label for="Coopname">Nom de la coopérative</label>
+        </div>
+
+
+      </form>
+
+      <!-- <p>{{ this.myForm.value | json }}</p> -->
+
+    </div>
+  </div>
+</div>
